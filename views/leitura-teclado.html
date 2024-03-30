@@ -11,10 +11,74 @@
     <main>
         <h1>Leitura de Teclado</h1>
         <nav>
-            <li><a href="../index.html" class="btn-grad">Voltar</a></li>
+            <li><a href="../views/animacoes.html" class="btn-grad">Voltar</a></li>
             <li><a href="../index.html" class="btn-grad"><i class="fa-solid fa-house"></i></a></li>
             <li><a href="sprite-sheets.html" class="btn-grad">Avançar</a></li>    
         </nav>
+        <section>
+            <div class="card">
+                <h3>Focaremos em dois tipos de interações:</h3>
+                <br>
+                <p><b>Tecla mantida pressionada:</b> como em situações onde o heroi se movimenta.</p>
+                <p><b>Tecla pressionada e solta rapidamente:</b> como teclas de disparo, onde deve acontecer só uma vez.</p>
+                <br>
+                <h3>Conceito de <em>listener</em></h3>    
+                <br>
+                <p>É uma função Js que executa uma ação em resposta a um evento. Para associar um <em>listener</em> a um elemento da página, usamos o método <em>addEventListener</em>.</p>
+                <br>
+                <h3>Eventos de teclado</h3>
+                <br>
+                <li>▫ <em>keydown:</em> ocorre quando a tecla é pressionada. Se o usuário mantém pressionado, o evento continua disparado.</li>
+                <li>▫ <em>keypress:</em> ocorre depois do <em>keydown</em>, no caso da tecla ser de caractere.</li>
+                <li>▫ <em>keyup:</em> ocorre uma única vez, quando uma tecla é solta.</li>
+            </div>
+            <div class="card">
+                <canvas id="canvas-introducao">
+                    Seu navegador não suporta um Canvas
+                </canvas>
+                <script>
+                    var canvas = document.getElementById('canvas-introducao');
+                    var context = canvas.getContext('2d');
+                    var SETA_ESQUERDA = 37;
+                    var SETA_DIREITA = 39;
+
+                    var posicao = 0;
+                    desenharPersonagem();
+
+                    function Teclado(elemento) {
+                        this.elemento = elemento;
+                        this.pressionadas = [];
+
+                        var teclado = this;
+                        elemento.addEventListener('keydown', function(evento){
+                            teclado.pressionadas[evento.keyCode] = true;
+                        });
+                        elemento.addEventListener('keyup', function(evento){
+                            teclado.pressionadas[evento.keycode] = false;
+                        })
+                    }
+
+
+
+                    document.addEventListener('keydown', function(evento){
+                        if(evento.keyCode == 37){
+                            posicao -= 10;
+                            desenharPersonagem();
+                        } else if(evento.keyCode == 39){
+                            posicao += 10;
+                            desenharPersonagem();
+                        }                       
+                    })
+
+                    function desenharPersonagem() {
+                        context.clearRect(0,0,canvas.width, canvas.height);
+                        context.fillRect(posicao, 100, 20, 50);
+                        console.log(posicao)
+                    }
+
+                </script>
+            </div>
+        </section>
     </main>
 </body>
 </html>

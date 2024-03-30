@@ -60,11 +60,14 @@ nav{
 #canvas-introducao{
     width: 300px;
     height: 300px;
+    border: 1px solid white;
 }
 
 #canvas-imagens, #canvas-animacao{
     width: 400px;
     height: 200px;
+    border: 1px solid white;
+
 }
 
 .card li{

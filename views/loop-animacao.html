@@ -4,17 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/fundamentos.css">
+    <link rel="shortcut icon" href="../img/nave.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="animacao.js"></script>
+    <script src="bola.js"></script>
     <title>Loop de Animação - Desenvolva Jogos | HTML5 Canvas e JS</title>
 </head>
 <body>
     <main>
         <h1>Loop de Animação</h1>
         <nav>
-            <li><a href="../index.html" class="btn-grad">Voltar</a></li>
+            <li><a href="../views/animacoes.html" class="btn-grad">Voltar</a></li>
             <li><a href="../index.html" class="btn-grad"><i class="fa-solid fa-house"></i></a></li>
             <li><a href="leitura-teclado.html" class="btn-grad">Avançar</a></li>    
         </nav>
+        <section>
+            <div class="card">
+                <p>É necessário criar uma classe para controlar o loop de jogo.</p>
+                <h3>Sprites</h3>
+                <p>Aos objetos trabalhados dentro de um loop de animação, damos o nome de sprites</p>
+                <br>
+                <canvas id="canvas-introducao">
+                    Seu navegador não suporta o Canvas 
+                </canvas>
+                <script>
+                    var canvas = document.getElementById('canvas-introducao');
+                    var context = canvas.getContext('2d');
+
+                    var animacao = new Animacao(context);
+
+                    var bola1 = new Bola(context);
+                    bola1.x = 200;
+                    bola1.y = 100;
+                    bola1.velocidadeX = 2;
+                    bola1.velocidadeY = -1;
+                    bola1.cor = 'green';
+                    bola1.raio = 8;
+
+                    var bola2 = new Bola(context);
+                    bola2.x = 200;
+                    bola2.y = 100;
+                    bola2.cor = 'blue';
+                    bola2.velocidadeX = 3;
+                    bola2.velocidadeY = 2;
+                    bola2.raio = 5;
+
+                    animacao.novoSprite(bola1);
+                    animacao.novoSprite(bola2);
+                    animacao.ligar();
+                    
+                </script>
+            </div>
+        </section>
     </main>
 </body>
 </html>
