@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/fundamentos.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Fundamentos - Desenvolva Jogos | HTML5 Canvas e JS</title>
+</head>
+<body>
+    <main>
+        <h1>Fundamentos</h1>
+        <nav>
+            <li><a href="../index.html" class="btn-grad">Voltar</a></li>
+            <li><a href="../index.html" class="btn-grad"><i class="fa-solid fa-house"></i></a></li>
+            <li><a href="imagens.html" class="btn-grad">Avançar</a></li>    
+        </nav>
+        <section>
+            <div class="card">
+                <h3>Desenhando com Canvas</h3>
+                <br>    
+                <p>Para criar um Canvas em uma página utilizamos a tag <b>&#60;canvas&#62;</b> é importante adicionar ao elemento: <b>id, width e height.</b></p>
+                <br>
+                <code class="codigo">
+                    &#60;canvas id='nome_canvas' width='largura' height='altura'&#62; <br>
+                    Seu navegador não suporta o Canvas do HTML5. <br>
+                    &#60;/canvas&#62;
+                </code>
+                <br><br>
+                <h3>Métodos</h3>
+                <br>
+                <li>▫ fillRect(x, y, largura, altura): pinta completamente a area desenhada.</li>
+                <li>▫ strokeRect(x, y, largura, altura): pinta completamente a area desenhada.</li>
+                <li>▫ fillStyle: define a cor do preenchimento.</li>
+                <li>▫ strokeStyle: define a cor da linha.</li>
+                <li>▫ lineWidth: define a espessura da linha.</li>
+                <br>
+                <br>
+                <h3>Paths</h3>
+                <br>
+                <p>Conjunto de comandos de desenho que ficam registrados na memória, aguardando os métodos: <em>fill</em> ou <em>stroke</em>.</p>
+                <br>
+                <li>▫ beginPath(): iniciar novo caminho, apagando desenhos anteriores.</li>
+                <li>▫ fill(): preencher.</li>
+                <li>▫ stroke(): contornar.</li>
+                <li>▫ moveTo(x,y): posiciona a caneta.</li>
+                <li>▫ lineTo(x,y): traça uma reta de um ponto a outro.</li>
+                <br>
+                
+                <canvas id="canvas-introducao">
+                    Seu navegador não suporta o Canvas do HTML5.
+                </canvas>
+                <script>
+                    window.onload = function() {
+                        var canvasIntroducao = document.getElementById('canvas-introducao');
+                        var context = canvasIntroducao.getContext('2d');  
+                    
+                        /*context.fillRect(0,0,60,30); 
+                        context.strokeRect(240,0,60,30);
+                        context.fillStyle = 'blue' 
+                        context.fillRect(0,120,60,30);
+                        context.strokeStyle = 'green';
+                        context.lineWidth = 3;
+                        context.strokeRect(240,120,60,30);*/
+                        
+                        context.beginPath();
+                        context.moveTo(17.5, 105);
+                        context.lineTo(75, 35);
+                        context.lineTo(122.5, 105);
+                        context.lineTo(0,60);
+                        context.lineTo(155,60);
+                        context.lineTo(17.5,105);
+                        
+                        context.strokeStyle = 'yellow';
+                        context.stroke();
+
+                    }
+                </script>
+
+            </div>
+        </section>
+    </main>
+</body>
+</html>
