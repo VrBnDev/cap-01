@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/fundamentos.css">
-    <link rel="stylesheet" href="css/fundamentos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Spritesheets - Desenvolva Jogos | HTML5 Canvas e JS</title>
 </head>
@@ -21,11 +20,35 @@
                 <h3>Conteito</h3>
                 <p>Uma <em>spritesheet</em> é uma imagem contendo várias partes de uma animação.</p>
                 <br>
-                <canvas id="canvas-introducao">
+                <img src="../img/spritesheet.png">
+                <br><br>
+                <canvas id="canvas-spritesheet">
                     Seu navegador não suporta o Canvas.
                 </canvas>
                 <script>
-                    var canvas = document.getElementById('canvas-introducao').getContext('2d')
+                    var imgSonic = new Image();
+                    imgSonic.src = '../img/spritesheet.png';
+                    imgSonic.onload = function() {
+                        var linhas = 3;
+                        var colunas = 8;
+                        var largura = imgSonic.width / colunas;
+                        var altura = imgSonic.height / linhas;
+                        var queroLinha = 2;
+                        var queroColuna = 7;
+                        var x = largura * queroColuna;
+                        var y = altura * queroLinha;
+                        var context = document.getElementById('canvas-spritesheet').getContext('2d');
+                        context.drawImage(
+                            imgSonic, 
+                            x, 
+                            y, 
+                            largura, 
+                            altura, 
+                            100, 
+                            110, 
+                            largura, 
+                            altura);
+                    }
                 </script>
             </div>
         </section>
