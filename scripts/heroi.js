@@ -25,6 +25,7 @@ class Heroi{
 
     desenhar(){
         this.context.fillRect(this.x, this.y, 20, 50);
+        this.context.fillStyle = 'blue';
     }       
 
     atirar(){
@@ -32,7 +33,7 @@ class Heroi{
         tiro.x = this.x + 10;
         tiro.y = this.y + 10;
         tiro.raio = 2;
-        tiro.cor = 'red';
+        tiro.cor = 'white';
 
         /*if(this.teclado.pressionada(SETA_ESQUERDA))
             tiro.velocidadeX = -20;
